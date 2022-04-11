@@ -2,8 +2,8 @@
   <div>
     <v-container fluid>
       <div class="d-flex flex-column align-center w-100">
-        <h1 class="text-center pt-6">{{breedName||'Dogs API Project'}}</h1>
-        <div class="px-2 pt-6 w-100 dogs-card">
+        <h1 class="dog-title text-center pt-6">{{breedName||'Dogs API Project'}}</h1>
+        <div class="px-0 pt-6 w-100 dogs-selects">
           <v-select
             v-model="breedSelected"
             :items="breedsList"
@@ -28,6 +28,9 @@
             rounded
           ></v-select>
         </div>
+        <div class="logo pt-10 pt-sm-0" v-if="filteredImageList.length ===0">
+          <Logo></Logo>
+        </div>
         <v-row class="pa-0 ma-0">
           <v-col
             v-for="(image, index) in filteredImageList"
@@ -44,9 +47,11 @@
 </template>
 
 <script>
+import Logo from "../components/Logo.vue";
+
 export default {
   name: "IndexPage",
-  components: {},
+  components: {Logo},
   data: () => ({
     breedName:"",
     breed: "",
@@ -104,11 +109,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// styles
+.dog-title {
+  color: #FFB347
+}
 .w-100 {
   width: 100% !important;
 }
-.dogs-card {
+.dogs-selects {
   max-width: 400px;
+    position: relative;
+    z-index: 3;
+
+}
+
+.logo {
+  margin-top: 8rem;
+  position: absolute;
+    z-index: 2;
 }
 </style>
