@@ -56,12 +56,11 @@
                   </h1>
                 </v-col>
                 <v-col cols="12" class="d-flex flex-wrap justify-center">
-                  <img
+                  <Dialog
                     v-for="(image, i) in breeds.list"
                     :key="`item${i}`"
-                    :src="image"
-                    class="mb-3 mr-3 small-img"
-                  />
+                    :image="image"
+                  ></Dialog>
                 </v-col>
               </v-row>
             </v-alert>
@@ -74,6 +73,7 @@
 
 <script>
 import Logo from "../components/Logo.vue";
+import Dialog from "../components/Dialog.vue";
 
 export default {
   components: { Logo },
@@ -163,10 +163,5 @@ export default {
   margin-top: 8rem;
   position: absolute;
   z-index: 2;
-}
-.small-img {
-  width: 100px;
-  height: 100px;
-  border-radius: 1rem;
 }
 </style>
