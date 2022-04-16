@@ -49,7 +49,7 @@
               elevation="2"
               class="w-100 d-flex flex-wrap justify-center"
             >
-              <v-row class="ma-0 pa-0">
+              <v-row class="ma-0 pa-0 pl-3">
                 <v-col cols="12">
                   <h1 class="dog-title text-center py-3 text-capitalize">
                     {{ breeds.breedName }}
